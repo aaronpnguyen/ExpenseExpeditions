@@ -4,7 +4,7 @@ import {useNavigate} from 'react-router-dom'
 import ExpenseForm from "./ExpenseForm"
 import ExpenseList from "./ExpenseList"
 import Statistic from "./Statistic"
-import Nav from "./Nav"
+import SideBar from "./SideBar"
 
 const Dashboard = () => {
     let [user, setUser] = useState({});
@@ -14,13 +14,13 @@ const Dashboard = () => {
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/user/logged", {withCredentials: true})
-            .then(response => setUser(user))
+            .then(response => setUser(response.data))
             .catch(error => navigate("/"))
-    }, [])
+    }, [user])
 
     return (
         <div>
-            <Nav/>
+            <SideBar/>
             <ExpenseForm submit={submit} setSubmit={setSubmit}/>
             <ExpenseList submit={submit}/>
             <Statistic submit={submit}/>
