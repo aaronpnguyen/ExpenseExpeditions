@@ -21,7 +21,7 @@ const LoginForm = () => {
                 if (response.data.errors) setErrors(response.data.errors)
                 else navigate("/dashboard")
             })
-            .catch(error => response.json(error))
+            .catch(error => console.log(error))
     }
 
     return (
