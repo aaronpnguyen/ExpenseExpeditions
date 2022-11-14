@@ -1,27 +1,29 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom'
+import ExpenseForm from "./ExpenseForm"
+import ExpenseList from "./ExpenseList"
+import Chart from "./Chart"
+import Nav from "./Nav"
 
 const Dashboard = () => {
-    const [user, setUser] = useState({});
+    let [user, setUser] = useState({});
+    let [submit, setSubmit] = useState(false);
     
     const navigate = useNavigate();
-    useEffect(() => {
-        axios.get("http://localhost:8000/api/user/logged", {withCredentials: true}) // Send cookies back to api
-            .then(response => {setUser(response.data)})
-            .catch(navigate("/"))
-    })
 
-    const logout = () => {
-        axios.get("http://localhost:8000/api/user/logout", {withCredentials: true})
-            .then(navigate("/"))
-            .catch(console.log("We didn't logout!"))
-    }
+    useEffect(() => {
+        axios.get("http://localhost:8000/api/user/logged", {withCredentials: true})
+            .then(response => setUser(user))
+            .catch(error => navigate("/"))
+    }, [])
 
     return (
         <div>
-            <h1>User dashboard! {user.password}</h1>
-            <button onClick={logout}>Logout</button>
+            <Nav/>
+            <ExpenseForm submit={submit} setSubmit={setSubmit}/>
+            <ExpenseList submit={submit}/>
+            <Chart/>
         </div>
     )
 }

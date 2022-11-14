@@ -22,9 +22,7 @@ const RegistrationForm = () => {
                 if (response.data.errors) setErrors(response.data.errors)
                 else navigate("/dashboard")
             })
-            .catch(error => {
-                console.log(error)
-            })
+            .catch(error => console.log(error))
     }
 
     return (
