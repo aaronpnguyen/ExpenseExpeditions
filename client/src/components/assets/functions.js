@@ -25,8 +25,8 @@ export const ChartInfo = obj => {
             borderColor: "black",
             borderWidth: 1,
             width: 300,
-            hoverOffset: 5,
-            cutout: 150
+            hoverOffset: 25,
+            cutout: 125,
         }]
     }
     return chartInfo

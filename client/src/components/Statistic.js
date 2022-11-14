@@ -24,7 +24,7 @@ const Chart = submit => {
             {
             expense?
                 <div style={{width: 500}}>
-                    <Bar data={expense}/>
+                    <Doughnut data={expense}/>
                 </div>:
             null
             }
