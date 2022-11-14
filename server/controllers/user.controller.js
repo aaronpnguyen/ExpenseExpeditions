@@ -12,6 +12,7 @@ class UserController {
 
     registerUser = async(request, response) => {
         // Check if user submitted an existing email, if they did give error
+        request.body.email = request.body.email.toLowerCase()
         const check = await User.find({email: request.body.email})
         if (check.length !== 0) return response.json({errors: {email: {message: "Email is already in use!"}}})
 
@@ -26,6 +27,7 @@ class UserController {
 
     loginUser = async(request, response) => {
         // We will not move on until we find email, if not found, send to error
+        request.body.email = request.body.email.toLowerCase()
         const user = await User.findOne({email: request.body.email});
         if (!user) return response.sendStatus(400);
 
