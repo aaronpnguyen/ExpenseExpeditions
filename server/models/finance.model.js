@@ -11,11 +11,21 @@ const FinanceSchema = new mongoose.Schema({
     },
     type: {
         type: String,
-        required: [true, 'Type for Int is required'],
+        enum: {
+            values: [
+                "Housing", "Utilities", "Investments", "Groceries", "Gas", "Auto & Transport", "Travel", "Vacation",
+                "Cell Phone", "Education", "Pets", "Clothing", "Shopping", "Subscriptions", "Loan Payment", "Social",
+                "Dining & Drinks", "Entertainment", "Health & Wellness", "Medical", "Cash & Checks", "Miscellaneous",
+                "Other"
+            ],
+            message: "Not a supported type!"
+        },
+        required: [true, 'Type for transaction is required'],
     },
     date: {
         type: Date,
-        // required: [true, 'Date for transaction is required'],
+        max: [new Date() + 1, "The date must be today or in the past"],
+        required: [true, 'Date for transaction is required'],
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,

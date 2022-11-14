@@ -1,7 +1,6 @@
 const User = require('../models/user.model');
 const jwt = require("jsonwebtoken")
 const bcrypt = require("bcrypt")
-
 const secret = process.env.SECRET_KEY
 
 class UserController {
@@ -36,7 +35,7 @@ class UserController {
         const userToken = jwt.sign({id: user._id}, secret)
 
         response.cookie("usertoken", userToken, secret, {httpOnly: true})
-                .json({user: user})
+            .json({user: user})
     }
 
     logoutUser = (request, response) => {
@@ -47,13 +46,6 @@ class UserController {
     getUser = (request, response) => {
         const userData = jwt.decode(request.cookies.usertoken, {complete: true})
         User.findOne({_id: userData.payload.id})
-            .then(user => {response.json(user)})
-            .catch(error => {response.json(error)})
-    }
-
-    getUserFinances = (request, response) => {
-        User.findOne({user_id: request.params.user_id})
-            .populate("finances")
             .then(user => {response.json(user)})
             .catch(error => {response.json(error)})
     }
