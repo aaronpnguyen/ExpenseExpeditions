@@ -1,3 +1,4 @@
+import React, {useEffect, useState} from 'react' 
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios';
 
@@ -10,7 +11,22 @@ const Nav = () => {
     }
 
     return (
-        <button onClick={logout}>Logout</button>
+        <>
+            <div className="nav">
+                <div className="leftNav">
+                    <div className="logo">
+                        <h1 className="logo">Modular Tracker</h1>
+                    </div>
+                </div>
+                <div className="rightNav">
+                    <div className="login">
+                    {
+                        document.cookie?<a onClick={logout}>Sign Out</a>:<a>Sign In</a>
+                    } 
+                    </div>
+                </div>
+            </div>
+        </>
     )
 }
 

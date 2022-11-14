@@ -1,0 +1,19 @@
+:root {
+    --char: rgb(17, 17, 17);
+    --light-charc: #1f1f1f;
+    --pure-white: rgb(255, 255, 255);
+    --soft-white: rgb(247, 247, 247);
+    --red: #d1363a;
+    --blue: #1badd6;
+    --text-spacing: 1.2px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: var(--soft-white);
+}
