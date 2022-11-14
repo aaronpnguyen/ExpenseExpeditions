@@ -2,6 +2,8 @@ const Finance = require('../models/finance.model');
 const User = require('../models/user.model');
 const jwt = require("jsonwebtoken");
 
+const secret = process.env.SECRET_KEY
+
 class FinanceController {
     getUserFinances = async (request, response) => {
         const userData = jwt.decode(request.cookies.usertoken, {complete: true}), userId = userData.payload.id;
@@ -12,12 +14,12 @@ class FinanceController {
     }
 
     createFinance = async (request, response) => {
-        const userData = jwt.decode(request.cookies.usertoken, {complete: true}), userId = userData.payload.id;
+        const userData = jwt.decode(request.cookies.usertoken, {complete: true}), userId = userData.payload.id
         let user = await User.findOne({_id: userId}), {...data} = request.body;
         data.user = user
         Finance.create(data)
-            .then(expense => {User.findOneAndUpdate({_id: userId}, {$push: {finances: expense}})})
-                .then(user => response.json(expense))
+            .then(expense => {User.findOneAndUpdate({_id: userId}, {$push: {finances: expense}})
+                .then(user => {response.json(expense)})})
             .catch(error => response.json(error))
     }
 }

@@ -30,6 +30,10 @@ const FinanceSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
+    },
+    expedition: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Expeditions"
     }
   },
   {timestamps: true}

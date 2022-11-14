@@ -24,5 +24,6 @@ require("./config/mongoose.config");
 // Routes
 require("./routes/user.route")(app) // User
 require("./routes/finance.route")(app) // Finances
+require("./routes/expedition.route")(app) // Expeditions
 
 app.listen(port, () => console.log(`Listening on port: ${port}\n(ﾉ◕ヮ◕)ﾉ*:・ﾟ✧`));
