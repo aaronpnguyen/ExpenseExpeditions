@@ -16,11 +16,12 @@ const ExpenseForm = props => {
         e.preventDefault()
         axios.post("http://localhost:8000/api/finance/new", info, {withCredentials: true})
             .then(response => {
+                console.log(response.data)
                 if (response.data.errors) setErrors(response.data.errors)
                 setInfo({transaction: "", amount: "", date: "", type: ""})
                 setSubmit(!submit)
             })
-            .catch(error =>  console.log(error))
+            .catch(error => console.log(error))
     }
     
     return(

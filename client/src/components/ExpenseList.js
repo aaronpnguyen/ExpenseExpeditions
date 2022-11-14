@@ -32,6 +32,7 @@ const ExpenseList = submit => {
                                 <td>${new Intl.NumberFormat().format(Math.abs(amount))}</td>
                                 <td>{moment.utc(date).format("MMMM Do YYYY")}</td>
                                 <td>{type}</td>
+                                <td>Delete | Edit</td>
                             </tr>
                         )
                     })
