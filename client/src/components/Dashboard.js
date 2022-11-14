@@ -3,7 +3,7 @@ import axios from 'axios';
 import {useNavigate} from 'react-router-dom'
 import ExpenseForm from "./ExpenseForm"
 import ExpenseList from "./ExpenseList"
-import Chart from "./Chart"
+import Statistic from "./Statistic"
 import Nav from "./Nav"
 
 const Dashboard = () => {
@@ -23,7 +23,7 @@ const Dashboard = () => {
             <Nav/>
             <ExpenseForm submit={submit} setSubmit={setSubmit}/>
             <ExpenseList submit={submit}/>
-            <Chart/>
+            <Statistic submit={submit}/>
         </div>
     )
 }

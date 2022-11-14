@@ -11,10 +11,11 @@ console.log(transactionType.length)
 
 export const Categories = transactionType;
 
-const ChartInfo = obj => {
+// CHART JS FORMATTING
+export const ChartInfo = obj => {
     let chartInfo = {
         labels: Object.keys(obj),
-        datasets:[{
+        datasets: [{
             data: Object.values(obj),
             backgroundColor: [
                 "#ffcd56", "#a336eb", "#4bc0c0", "#33FF6B",
@@ -22,8 +23,10 @@ const ChartInfo = obj => {
                 "#1a9979", "#bd3724", "#f70000", 
             ],
             borderColor: "black",
-            borderWidth: 2,
+            borderWidth: 1,
             width: 300,
+            hoverOffset: 5,
+            cutout: 150
         }]
     }
     return chartInfo
@@ -36,6 +39,13 @@ export const DataParser = response => {
         if (expenseData[type]) expenseData[type] += amount;
         else expenseData[type] = amount;
     }
-    const financeData = ChartInfo(expenseData)
-    return financeData
+    return expenseData
+}
+
+export const Sum = response => {
+    let finance = response.data, sum = 0
+    for (let i = 0; i < finance.length; i++) {
+        sum += finance[i].amount;
+    }
+    return sum.toFixed(2)
 }
