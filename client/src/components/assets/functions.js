@@ -22,11 +22,11 @@ export const ChartInfo = obj => {
                 "#33FFC1", "#ff6384", "#36a2eb", "#333333",
                 "#1a9979", "#bd3724", "#f70000", 
             ],
-            borderColor: "black",
-            borderWidth: 1,
             width: 300,
             hoverOffset: 25,
             cutout: 125,
+            borderRadius: 50,
+            spacing: 5
         }]
     }
     return chartInfo
