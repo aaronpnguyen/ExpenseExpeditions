@@ -35,7 +35,7 @@
     border-radius: 25px;
 }
 
-.login > a {
+.login > button {
     display: flex;
     justify-content: center;
     text-decoration: none;
@@ -48,6 +48,6 @@
     letter-spacing: var(--text-spacing)
 }
 
-.login > a:hover {
+.login > button:hover {
     cursor: pointer;
 }
