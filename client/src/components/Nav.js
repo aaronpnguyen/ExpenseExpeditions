@@ -15,7 +15,7 @@ const Nav = () => {
             <div className="nav">
                 <div className="leftNav">
                     <div className="logo">
-                        <h1 className="logo">Modular Tracker</h1>
+                        <h1 className="logo">Expense Expeditions</h1>
                     </div>
                 </div>
                 <div className="rightNav">
