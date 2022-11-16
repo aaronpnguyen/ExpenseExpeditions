@@ -8,7 +8,7 @@ const Expedition = () => {
     
     return (
         <>
-            <ExpenseForm expId={id} submit={submit} setSubmit={setSubmit}/>
+            <ExpenseForm expeditionId={id} submit={submit} setSubmit={setSubmit}/>
             <p>{id}</p>
         </>
     )
