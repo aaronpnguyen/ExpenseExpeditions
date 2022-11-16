@@ -12,6 +12,16 @@ class FinanceController {
             .catch(error => response.json(error))
     }
 
+    getExpeditionFinances = async (request, response) => {
+        const userData = jwt.decode(request.cookies.usertoken, {complete: true}), userId = userData.payload.id;
+        const expeditionId = request.params.expeditionId;
+        let expedition = await Expedition.findOne({_id: expeditionId, user: userId})
+        if (!expedition) return response.sendStatus(400)
+        const finance = await Finance.find({expedition: expeditionId, user: userId}).sort({date: -1})
+            .then(finance => response.json(finance))
+            .catch(error => response.json(error))
+    }
+
     createFinance = async (request, response) => {
         const userData = jwt.decode(request.cookies.usertoken, {complete: true}), userId = userData.payload.id
         request.body.user = userId

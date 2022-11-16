@@ -1,14 +1,19 @@
 import React, {useEffect, useState} from 'react';
+import {useNavigate, useParams} from 'react-router-dom'
 import axios from 'axios'
 import moment from 'moment'
 
 const ExpenseList = submit => {
     const [expense, setExpense] = useState();
+    const {id} = useParams();
 
+    const navigate = useNavigate()
     useEffect(() => {
-        axios.get("http://localhost:8000/api/finances/user", {withCredentials: true})
+        let route = ""
+        id? route = `http://localhost:8000/api/finances/expedition/${id}`: route = "http://localhost:8000/api/finances/user"
+        axios.get(route, {withCredentials: true})
             .then(response => setExpense(response.data))
-            .catch(error => console.log(error))
+            .catch(error => navigate("/dashboard"))
     }, [submit])
 
     return (
