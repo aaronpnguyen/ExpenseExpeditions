@@ -34,7 +34,6 @@ const Chart = submit => {
             }
             </div>
             <div>
-                <p>{sum}</p>
             </div>
         </div>
     )
