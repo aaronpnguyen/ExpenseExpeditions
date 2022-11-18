@@ -25,6 +25,7 @@ const ExpenseList = submit => {
                         <th>Amount</th>
                         <th>Date</th>
                         <th>Type</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,7 +35,7 @@ const ExpenseList = submit => {
                         return(
                             <tr key={i}>
                                 <td>{transaction}</td>
-                                <td>${new Intl.NumberFormat().format(Math.abs(amount))}</td>
+                                <td className={amount > 0? "notCashMonies": "cashMonies"}>${new Intl.NumberFormat().format(Math.abs(amount))}</td>
                                 <td>{moment.utc(date).format("MMMM Do YYYY")}</td>
                                 <td>{type}</td>
                                 <td>Delete | Edit</td>

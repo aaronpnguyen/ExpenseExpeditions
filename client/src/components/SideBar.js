@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios'
-import {useNavigate, Link} from 'react-router-dom';
+import {useNavigate, Link, useParams} from 'react-router-dom';
 
 const SideBar = () => {
     const [expedition, setExpedition] = useState("")
     const [expeditionList, setExpeditionList] = useState([])
     const [add, setAdd] = useState(true);
+    const {id} = useParams()
 
     const navigate = useNavigate();
     useEffect(() => {
@@ -17,14 +18,14 @@ const SideBar = () => {
     const submitHandler = e => {
         e.preventDefault()
         axios.post("http://localhost:8000/api/expedition/new", {title: expedition}, {withCredentials: true})
-            .then(response => console.log("success!"))
+            .then(response => console.log(response.data))
             .catch(error => console.log(error))
         setAdd(!add)
         setExpedition("")
     }
 
     return (
-        <>
+        <div className="sideBarContainer">
             {
             add?
                 <button onClick={e => setAdd(!add)}>Create a New Expedition?</button>:
@@ -35,14 +36,11 @@ const SideBar = () => {
                     </form>
                 </div>
             }
-            <div> {
-                expeditionList?.map((item, i) => 
-                <p>
-                    <Link to={`/expedition/${item._id}`}>{item.title}</Link>
-                </p>
-                )
-            } </div>
-        </>
+            <div className='links'> 
+                {id? <Link to="/dashboard" className="expeditionLink">Main Expedition</Link>: null}
+                {expeditionList?.map((item, i) => <Link to={`/expedition/${item._id}`} key={i} className="expeditionLink">{item.title}</Link>)}
+            </div>
+        </div>
     )
 }
 

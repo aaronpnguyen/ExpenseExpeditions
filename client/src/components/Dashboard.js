@@ -19,11 +19,19 @@ const Dashboard = () => {
     }, [])
 
     return (
-        <div>
-            <SideBar/>
-            <ExpenseForm submit={submit} setSubmit={setSubmit}/>
-            <ExpenseList submit={submit}/>
-            <Statistic submit={submit}/>
+        <div className='bodyContainer'>
+            <div className='leftBody'>
+                <SideBar/>
+            </div>
+            <div className='rightBody'>
+                <div className='topper'>
+                    <Statistic submit={submit}/>
+                    <ExpenseForm submit={submit} setSubmit={setSubmit}/>
+                </div>
+                <div className='bottom'>
+                    <ExpenseList submit={submit}/>
+                </div>
+            </div>
         </div>
     )
 }

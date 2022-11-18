@@ -1,4 +1,5 @@
 import './components/css/navbar.css';
+import './components/css/panel.css';
 import './components/css/root.css';
 import SignIn from './components/SignIn'
 import Dashboard from './components/Dashboard'

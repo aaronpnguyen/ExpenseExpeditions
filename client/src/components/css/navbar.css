@@ -10,7 +10,6 @@
     background-color: var(--light-charc);
     width: 100%;
     height: 70px;
-    border-bottom: 2px solid rgba(51,51,51,.25);
 }
 
 .leftNav {

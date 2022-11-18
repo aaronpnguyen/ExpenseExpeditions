@@ -7,7 +7,6 @@ let transactionType = [
 transactionType.sort()
 transactionType.unshift("Choose type")
 transactionType.push("Other")
-console.log(transactionType.length)
 
 export const Categories = transactionType;
 
@@ -23,10 +22,8 @@ export const ChartInfo = obj => {
                 "#1a9979", "#bd3724", "#f70000", 
             ],
             width: 300,
-            hoverOffset: 25,
-            cutout: 125,
-            borderRadius: 50,
-            spacing: 5
+            hoverOffset: 10,
+            radius: '95%',
         }]
     }
     return chartInfo

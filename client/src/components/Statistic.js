@@ -24,18 +24,8 @@ const Chart = submit => {
     }, [submit]) 
 
     return (
-        <div>
-            <div>
-            {
-            expense?
-                <div style={{width: 500}}>
-                    <Doughnut data={expense}/>
-                </div>:
-            null
-            }
-            </div>
-            <div>
-            </div>
+        <div className='chartContainer'>
+            {expense? <Pie data={expense}/>: null}
         </div>
     )
 }

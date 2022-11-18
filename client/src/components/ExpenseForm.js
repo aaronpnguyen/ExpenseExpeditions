@@ -26,19 +26,21 @@ const ExpenseForm = props => {
     }
     
     return(
-        <div>
+        <div className="expenseFormContainer">
             <form onSubmit={createTransaction}>
-                <input type="text" name="transaction" placeholder="Name of Transaction" value={transaction} onChange={changeHandler}/>
-                <input type="text" name="amount" placeholder="Amount" value={amount} onChange={changeHandler}/>
-                <input type="date" name="date" placeholder="Date" value={date} onChange={changeHandler}/>
-                <select name="type" placeholder="Type" value={type} onChange={changeHandler} defaultValue={Categories[0]}>
-                    {
-                        Categories.map((type, i) => {
-                            return <option key={i} value={type}>{type}</option>
-                        })
-                    }
-                </select>
-                <button>Submit</button>
+                <input type="text" name="transaction" placeholder="Name of Transaction" className="userInput" value={transaction} onChange={changeHandler}/>
+                <input type="text" name="amount" placeholder="Amount" className="userInput"value={amount} onChange={changeHandler}/>
+                <div className="selectors">
+                    <input type="date" name="date" placeholder="Date" value={date} onChange={changeHandler}/>
+                    <select name="type" placeholder="Type" value={type} onChange={changeHandler} defaultValue={Categories[0]}>
+                        {
+                            Categories.map((type, i) => {
+                                return <option key={i} value={type}>{type}</option>
+                            })
+                        }
+                    </select>
+                </div>
+                <button className="expenseButton">Create Transaction</button>
             </form>
         </div>
     )

@@ -1,19 +1,20 @@
 :root {
-    --char: rgb(17, 17, 17);
     --light-charc: #1f1f1f;
+    --coal: #464647;
+    --grey: #ececec;
     --pure-white: rgb(255, 255, 255);
     --soft-white: rgb(247, 247, 247);
     --red: #d1363a;
     --blue: #1badd6;
+    --divider: #d7dbdb;
+    --green: #0dbc79;
     --text-spacing: 1.2px;
 }
 
-* {
+html, body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-}
-
-body {
     background-color: var(--soft-white);
+    height: 100%
 }

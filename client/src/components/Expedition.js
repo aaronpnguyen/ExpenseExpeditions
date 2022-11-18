@@ -10,12 +10,20 @@ const Expedition = () => {
     const {id} = useParams()
     
     return (
-        <>
-            <SideBar/>
-            <ExpenseForm expeditionId={id} submit={submit} setSubmit={setSubmit}/>
-            <ExpenseList expeditionId={id} submit={submit}/>
-            <Statistic expeditionId={id} submit={submit}/>
-        </>
+        <div className='bodyContainer'>
+            <div className='leftBody'>
+                <SideBar/>
+            </div>
+            <div className='rightBody'>
+                <div className='topper'>
+                    <Statistic expeditionId={id} submit={submit}/>
+                    <ExpenseForm expeditionId={id} submit={submit} setSubmit={setSubmit}/>
+                </div>
+                <div className='bottom'>
+                    <ExpenseList expeditionId={id} submit={submit}/>
+                </div>
+            </div>
+        </div>
     )
 }
 

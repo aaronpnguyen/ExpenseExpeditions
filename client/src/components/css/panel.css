@@ -1,0 +1,157 @@
+.bodyContainer {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.sideBarContainer {
+    background-color: var(--light-charc);
+    width: 250px;
+    padding-left: 50px;
+    height: 100%;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+}
+
+.links > .expeditionLink {
+    color: var(--soft-white);
+    border: 1px solid var(--coal);
+    margin-top: 10px;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.expeditionLink {
+    padding: 5px;
+    width: 200px;
+    border-radius: 10px;
+}
+
+.rightBody {
+    width: 100%;
+}
+
+.topper {
+    padding: 50px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.chartContainer {
+    width: 500px;
+    height: 500px;
+    background-color: var(--soft-white);
+    border: 2px solid var(--divider);
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.expenseFormContainer {
+    display: flex;
+    align-items: center;
+    width: 500px;
+    height: 500px;
+    border: 2px solid var(--divider);
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.expenseFormContainer > form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.userInput {
+    height: 50px;
+    width: 70%;
+    border-radius: 10px;
+    border: 2px solid var(--divider);
+    font-size: larger;
+    padding: 10px;
+}
+
+.selectors {
+    height: 50px;
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.selectors > * {
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 50px;
+    border-radius: 10px;
+    border: 2px solid var(--divider);
+    font-size: 16px;
+}
+
+form > .expenseButton {
+    padding: 10px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: var(--pure-white);
+    border: 2px solid var(--divider);
+}
+
+form > .expenseButton:hover {
+    background-color: var(--divider);
+    cursor: pointer;
+}
+
+.bottom {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 175px;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    width: 1000px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+table thead tr {
+    background-color: var(--coal);
+    color: var(--pure-white);
+    text-align: left;
+    font-weight: bold;
+}
+
+table th, table td {
+    padding: 12px 15px;
+}
+
+table tbody tr {
+    border-bottom: 1px solid var(--pure-white);
+}
+
+table tbody tr:nth-of-type(even) {
+    background-color: var(--pure-white);
+}
+
+table tbody tr:last-of-type {
+    border-bottom: 2px solid var(--coal);
+}
+
+.cashMonies {
+    color: var(--green)
+}
+
+.notCashMonies {
+    color: var(--red)
+}
