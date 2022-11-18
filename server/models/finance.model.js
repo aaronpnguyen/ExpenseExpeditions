@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const FinanceSchema = new mongoose.Schema({
     transaction: {
         type: String,
+        trim: true,
         required: [true, 'Name of transaction is required']
     },
     amount: {

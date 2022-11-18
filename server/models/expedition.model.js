@@ -3,7 +3,10 @@ const mongoose = require('mongoose');
 const ExpeditionSchema = new mongoose.Schema({
     title: {
         type: String,
-        required: [true, 'Name of transaction is required']
+        trim: true,
+        maxlength: [10, 'Expedition title cannot be more than 10 characters'],
+        minlength: [3, 'Expedition tile must be more than 2 characters'],
+        required: [true, 'Name of expedition is required']
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,
