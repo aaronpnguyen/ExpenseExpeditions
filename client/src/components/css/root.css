@@ -18,3 +18,9 @@ html, body {
     background-color: var(--soft-white);
     height: 100%
 }
+
+#root {
+    margin: 0;
+    padding: 0;
+    height: 100%
+}

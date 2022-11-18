@@ -112,7 +112,6 @@ form > .expenseButton:hover {
 .bottom {
     display: flex;
     justify-content: center;
-    margin-bottom: 175px;
 }
 
 table {
