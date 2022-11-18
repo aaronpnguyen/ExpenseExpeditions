@@ -7,18 +7,17 @@ const SideBar = () => {
     const [expeditionList, setExpeditionList] = useState([])
     const [add, setAdd] = useState(true);
 
+    const navigate = useNavigate();
     useEffect(() => {
         axios.get("http://localhost:8000/api/expeditions/user", {withCredentials: true})
             .then(response => setExpeditionList(response.data))
-            .catch(error => console.log(error))
+            .catch(error => navigate('/'))
     }, [expeditionList])
 
     const submitHandler = e => {
         e.preventDefault()
         axios.post("http://localhost:8000/api/expedition/new", {title: expedition}, {withCredentials: true})
-            .then(response => {
-                console.log(response)
-            })
+            .then(response => console.log("success!"))
             .catch(error => console.log(error))
         setAdd(!add)
         setExpedition("")

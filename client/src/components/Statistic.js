@@ -10,6 +10,7 @@ const Chart = submit => {
     const [sum, setSum] = useState(0);
     const {id} = useParams()
 
+    const navigate = useNavigate();
     useEffect(() => {
         let route = ""
         id? route = `http://localhost:8000/api/finances/expedition/${id}`: route = "http://localhost:8000/api/finances/user"
@@ -19,7 +20,7 @@ const Chart = submit => {
                 setExpense(ChartInfo(data))
                 setSum(Sum(response))
             })
-            .catch(error => console.log(error))
+            .catch(error => navigate("/"))
     }, [submit]) 
 
     return (

@@ -13,7 +13,7 @@ const ExpenseList = submit => {
         id? route = `http://localhost:8000/api/finances/expedition/${id}`: route = "http://localhost:8000/api/finances/user"
         axios.get(route, {withCredentials: true})
             .then(response => setExpense(response.data))
-            .catch(error => navigate("/dashboard"))
+            .catch(error => navigate("/"))
     }, [submit])
 
     return (

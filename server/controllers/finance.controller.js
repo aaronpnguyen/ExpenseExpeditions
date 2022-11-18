@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 
 class FinanceController {
     getUserFinances = async (request, response) => {
+        if (!request.cookies.usertoken) return response.sendStatus(400)
         const userData = jwt.decode(request.cookies.usertoken, {complete: true}), userId = userData.payload.id;
         let user = await User.findOne({_id: userId});
         Finance.find({user: user}).sort({date: -1})
@@ -13,6 +14,7 @@ class FinanceController {
     }
 
     getExpeditionFinances = async (request, response) => {
+        if (!request.cookies.usertoken) return response.sendStatus(400)
         const userData = jwt.decode(request.cookies.usertoken, {complete: true}), userId = userData.payload.id;
         const expeditionId = request.params.expeditionId;
         let expedition = await Expedition.findOne({_id: expeditionId, user: userId})

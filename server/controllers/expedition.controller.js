@@ -15,6 +15,7 @@ class ExpeditionController {
     }
 
     getExpeditions = async (request, response) => {
+        if (!request.cookies.usertoken) return response.sendStatus(400)
         const userData = jwt.decode(request.cookies.usertoken, {complete: true}), userId = userData.payload.id
         let user = await User.findOne({_id: userId});
         Expedition.find({user: user}).collation({locale: "en"}).sort({title: 1})

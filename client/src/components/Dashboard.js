@@ -16,7 +16,7 @@ const Dashboard = () => {
         axios.get("http://localhost:8000/api/user/logged", {withCredentials: true})
             .then(response => setUser(response.data))
             .catch(error => navigate("/"))
-    }, [user])
+    }, [])
 
     return (
         <div>
