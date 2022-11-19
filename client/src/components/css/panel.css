@@ -1,14 +1,16 @@
 .bodyContainer {
     display: flex;
     width: 100%;
-    height: 100%;
+    height: 100vh;
 }
 
 .sideBarContainer {
+    position: fixed;
     background-color: var(--light-charc);
     width: 250px;
     padding-left: 50px;
-    height: 100%;
+    margin-top: 60px;
+    height: 100vh;
 }
 
 .links {
@@ -31,6 +33,8 @@
 }
 
 .rightBody {
+    margin-top: 60px;
+    margin-left: 250px;
     width: 100%;
 }
 
@@ -114,43 +118,45 @@ form > .expenseButton:hover {
     justify-content: center;
 }
 
-table {
+.tableContainer {
     border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 0.9em;
+    font-size: 15px;
     width: 1000px;
     border-radius: 5px 5px 0 0;
-    overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-table thead tr {
+.tableContainer thead tr {
     background-color: var(--coal);
     color: var(--pure-white);
     text-align: left;
     font-weight: bold;
 }
 
-table th, table td {
+.tableContainer th, .tableContainer td {
     padding: 12px 15px;
 }
 
-table tbody tr {
+.tableContainer tbody tr {
     border-bottom: 1px solid var(--pure-white);
 }
 
-table tbody tr:nth-of-type(even) {
+.tableContainer tbody tr:nth-of-type(even) {
     background-color: var(--pure-white);
 }
 
-table tbody tr:last-of-type {
+.tableContainer tbody tr:last-of-type {
     border-bottom: 2px solid var(--coal);
 }
 
+thead > tr {
+    border-right: 5px solid var(--coal)
+}
+
 .cashMonies {
-    color: var(--green)
+    border-right: 5px solid var(--green)
 }
 
 .notCashMonies {
-    color: var(--red)
+    border-right: 5px solid var(--red)
 }

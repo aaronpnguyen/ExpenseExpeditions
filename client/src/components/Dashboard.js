@@ -9,7 +9,7 @@ import SideBar from "./SideBar"
 const Dashboard = () => {
     let [user, setUser] = useState({});
     let [submit, setSubmit] = useState(false);
-    
+
     const navigate = useNavigate();
 
     useEffect(() => {

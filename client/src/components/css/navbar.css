@@ -9,7 +9,8 @@
     justify-content: space-between;
     background-color: var(--light-charc);
     width: 100%;
-    height: 70px;
+    height: 60px;
+    position: fixed;
 }
 
 .leftNav {
