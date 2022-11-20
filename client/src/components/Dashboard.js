@@ -19,6 +19,7 @@ const Dashboard = () => {
     }, [])
 
     return (
+        user?
         <div className='bodyContainer'>
             <div className='leftBody'>
                 <SideBar/>
@@ -29,10 +30,11 @@ const Dashboard = () => {
                     <ExpenseForm submit={submit} setSubmit={setSubmit}/>
                 </div>
                 <div className='bottom'>
-                    <ExpenseList submit={submit}/>
+                    <ExpenseList submit={submit} setSubmit={setSubmit}/>
                 </div>
             </div>
-        </div>
+        </div>:
+        null
     )
 }
 

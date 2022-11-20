@@ -20,7 +20,7 @@ const Expedition = () => {
                     <ExpenseForm expeditionId={id} submit={submit} setSubmit={setSubmit}/>
                 </div>
                 <div className='bottom'>
-                    <ExpenseList expeditionId={id} submit={submit}/>
+                    <ExpenseList expeditionId={id} submit={submit} setSubmit={setSubmit}/>
                 </div>
             </div>
         </div>

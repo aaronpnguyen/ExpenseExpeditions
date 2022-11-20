@@ -4,13 +4,46 @@
     height: 100vh;
 }
 
+a {
+    text-decoration: none;
+    color: var(--soft-white)
+}
+
 .sideBarContainer {
     position: fixed;
     background-color: var(--light-charc);
-    width: 250px;
+    width: 200px;
     padding-left: 50px;
     margin-top: 60px;
     height: 100vh;
+}
+
+.expeditionForm {
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+}
+
+.expeditionForm > input {
+    margin-bottom: 15px;
+    width: 150px;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid var(--divider);
+    font-size: large;
+    padding: 5px;
+}
+
+.buttonHolder {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 37px;
+}
+
+.newExpedition {
+    margin-top: 10px;
+    width: 150px;
+    height: 50px
 }
 
 .links {
@@ -18,18 +51,20 @@
     flex-direction: column;
 }
 
-.links > .expeditionLink {
+.expeditionLink {
     color: var(--soft-white);
-    border: 1px solid var(--coal);
     margin-top: 10px;
     text-decoration: none;
-    font-size: 24px;
+    font-size: larger;
+    padding: 10px;
+    width: 70%;
+    border-radius: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.expeditionLink {
-    padding: 5px;
-    width: 200px;
-    border-radius: 10px;
+.expeditionLink:hover, .selectedLink {
+    background-color: var(--coal);
 }
 
 .rightBody {
@@ -44,23 +79,49 @@
     justify-content: space-evenly;
 }
 
-.chartContainer {
+.chartContainer, .expenseFormContainer{
     width: 500px;
-    height: 500px;
+    height: 550px;
     background-color: var(--soft-white);
     border: 2px solid var(--divider);
     border-radius: 10px;
     padding: 25px;
+    overflow-y: auto;
 }
 
-.expenseFormContainer {
+.chartContainer {
     display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    width: 500px;
-    height: 500px;
-    border: 2px solid var(--divider);
+}
+
+.chart {
+    width: 93%;
+}
+
+.chartContainer > h1 {
+    display: flex;
+}
+
+.chartContainer > p, .chartContainer > h3 {
+    margin-top: 25px;
+}
+
+.chartButton {
+    margin-top: 10px;
+    padding: 15px;
+    width: auto;
+    border: 2px solid var(--divider)
+}
+
+.stat {
     border-radius: 10px;
-    padding: 25px;
+    border: 2px solid var(--divider);
+    padding: 15px;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .expenseFormContainer > form {
@@ -87,6 +148,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
 .selectors > * {
@@ -100,16 +162,17 @@
     font-size: 16px;
 }
 
-form > .expenseButton {
+.expenseButton {
     padding: 10px;
+    width: 300px;
     height: 50px;
     border-radius: 10px;
     background-color: var(--pure-white);
     border: 2px solid var(--divider);
 }
 
-form > .expenseButton:hover {
-    background-color: var(--divider);
+.expenseButton:hover {
+    background-color: var(--hover-white);
     cursor: pointer;
 }
 
@@ -122,7 +185,6 @@ form > .expenseButton:hover {
     border-collapse: collapse;
     font-size: 15px;
     width: 1000px;
-    border-radius: 5px 5px 0 0;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -146,7 +208,7 @@ form > .expenseButton:hover {
 }
 
 .tableContainer tbody tr:last-of-type {
-    border-bottom: 2px solid var(--coal);
+    border-bottom: 4px solid var(--coal);
 }
 
 thead > tr {
@@ -159,4 +221,27 @@ thead > tr {
 
 .notCashMonies {
     border-right: 5px solid var(--red)
+}
+
+table {
+    margin-bottom: 50px;
+}
+
+::-webkit-scrollbar {
+    border-radius: 10px;
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: #f1f1f1; 
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #888; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
 }

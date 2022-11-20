@@ -24,21 +24,29 @@ const SideBar = () => {
         setExpedition("")
     }
 
+    const cancel = e => {
+        e.preventDefault()
+        setAdd(!add)
+    }
+
     return (
         <div className="sideBarContainer">
             {
             add?
-                <button onClick={e => setAdd(!add)}>Create a New Expedition?</button>:
+                <button onClick={e => setAdd(!add)} className="newExpedition">New Expedition</button>:
                 <div>
-                    <form onSubmit={submitHandler}>
+                    <form onSubmit={submitHandler} className="expeditionForm">
                         <input type="text" placeholder="New Expedition" value={expedition} onChange={e => setExpedition(e.target.value)}/>
-                        <button>Add</button>
+                        <div className="buttonHolder">
+                            <button onClick={cancel}>Cancel</button>
+                            <button>Add</button>
+                        </div>
                     </form>
                 </div>
             }
             <div className='links'> 
                 {id? <Link to="/dashboard" className="expeditionLink">Main Expedition</Link>: null}
-                {expeditionList?.map((item, i) => <Link to={`/expedition/${item._id}`} key={i} className="expeditionLink">{item.title}</Link>)}
+                {expeditionList?.map((item, i) => <Link to={`/expedition/${item._id}`} key={i} className={id === item._id? "selectedLink expeditionLink": "expeditionLink"}>{item.title}</Link>)}
             </div>
         </div>
     )

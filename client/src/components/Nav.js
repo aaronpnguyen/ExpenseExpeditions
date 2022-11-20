@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react' 
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, Link} from 'react-router-dom'
 import axios from 'axios';
 
 const Nav = () => {
@@ -15,7 +15,7 @@ const Nav = () => {
             <div className="nav">
                 <div className="leftNav">
                     <div className="logo">
-                        <h1 className="logo">Expense Expeditions</h1>
+                        <h1 className="logo">{document.cookie? <Link to="/dashboard">Expense Expeditions</Link>: <Link to="/">Expense Expeditions</Link>}</h1>
                     </div>
                 </div>
                 <div className="rightNav">

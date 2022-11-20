@@ -1,8 +1,9 @@
 :root {
     --light-charc: #1f1f1f;
-    --coal: #464647;
+    --coal: #2e2e2e;
     --grey: #ececec;
     --pure-white: rgb(255, 255, 255);
+    --hover-white: rgb(231, 231, 231);
     --soft-white: rgb(247, 247, 247);
     --red: #d1363a;
     --blue: #1badd6;

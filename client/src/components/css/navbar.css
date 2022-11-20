@@ -35,19 +35,22 @@
     border-radius: 25px;
 }
 
-.login > button {
+button {
     display: flex;
     justify-content: center;
     text-decoration: none;
     align-items: center;
     font-weight: bold;
+    background-color: var(--pure-white);
     color: var(--light-charc);
     width: 100px;
     height: 35px;
     font-size: 14px;
-    letter-spacing: var(--text-spacing)
+    letter-spacing: var(--text-spacing);
+    border-radius: 10px;
 }
 
-.login > button:hover {
+button:hover {
+    background-color: var(--hover-white);
     cursor: pointer;
 }
