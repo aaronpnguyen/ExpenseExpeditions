@@ -14,9 +14,7 @@ const ExpenseList = props => {
         let route = ""
         id? route = `http://localhost:8000/api/finances/expedition/${id}`: route = "http://localhost:8000/api/finances/user"
         axios.get(route, {withCredentials: true})
-            .then(response => {
-                setExpense(response.data)
-            })
+            .then(response => setExpense(response.data))
             .catch(error => navigate("/"))
     }, [submit])
 

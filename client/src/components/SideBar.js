@@ -27,6 +27,7 @@ const SideBar = () => {
     const cancel = e => {
         e.preventDefault()
         setAdd(!add)
+        setExpedition("")
     }
 
     return (

@@ -133,9 +133,28 @@ a {
     width: 100%;
 }
 
+.inputForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 75%
+}
+
+.inputForm > .validation {
+    margin-bottom: 5px;
+    margin-left: 2px;
+    left: -160px;
+    color: var(--red);
+}
+
+.errorForm {
+    border: 1px solid var(--red)
+}
+
 .userInput {
     height: 50px;
-    width: 70%;
+    width: 100%;
     border-radius: 10px;
     border: 2px solid var(--divider);
     font-size: larger;
@@ -144,7 +163,7 @@ a {
 
 .selectors {
     height: 50px;
-    width: 70%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

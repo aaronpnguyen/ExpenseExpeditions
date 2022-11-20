@@ -18,7 +18,8 @@ const ExpenseForm = props => {
         axios.post("http://localhost:8000/api/finance/new", info, {withCredentials: true})
             .then(response => {
                 console.log(response.data)
-                if (response.data.errors) setErrors(response.data.errors)
+                if (response.data.errors) setErrors(response.data.errors);
+                else setErrors(null);
                 setInfo({transaction: "", amount: "", date: "", type: ""})
                 setSubmit(!submit)
             })
@@ -28,17 +29,27 @@ const ExpenseForm = props => {
     return(
         <div className="expenseFormContainer">
             <form onSubmit={createTransaction}>
-                <input type="text" name="transaction" placeholder="Name of Transaction" className="userInput" value={transaction} onChange={changeHandler}/>
-                <input type="text" name="amount" placeholder="Amount" className="userInput"value={amount} onChange={changeHandler}/>
-                <div className="selectors">
-                    <input type="date" name="date" placeholder="Date" value={date} onChange={changeHandler}/>
-                    <select name="type" placeholder="Type" value={type} onChange={changeHandler} defaultValue={Categories[0]}>
-                        {
-                            Categories.map((type, i) => {
-                                return <option key={i} value={type}>{type}</option>
-                            })
-                        }
-                    </select>
+                <div className="inputForm">
+                    {error.transaction? <p className="validation">{error.transaction.message}</p>: null}
+                    <input type="text" name="transaction" placeholder="Name of Transaction" className="userInput" value={transaction} onChange={changeHandler}/>
+                </div>
+                <div className="inputForm">
+                    {error.amount? <p className="validation">{error.amount.message}</p>: null}
+                    <input type="text" name="amount" placeholder="Amount" className="userInput"value={amount} onChange={changeHandler}/>
+                </div>
+                <div className="inputForm">
+                    {error.date? <p className="validation">{error.date.message}</p>: null}
+                    {error.type? <p className="validation">{error.type.message}</p>: null}
+                    <div className="selectors">
+                        <input type="date" name="date" placeholder="Date" value={date} onChange={changeHandler}/>
+                        <select name="type" placeholder="Type" value={type} onChange={changeHandler} defaultValue={Categories[0]}>
+                            {
+                                Categories.map((type, i) => {
+                                    return <option key={i} value={type}>{type}</option>
+                                })
+                            }
+                        </select>
+                    </div>
                 </div>
                 <button className="expenseButton">Create Transaction</button>
             </form>
