@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
-import ExpenseForm from './ExpenseForm'
-import ExpenseList from './ExpenseList'
-import Statistic from './Statistic'
-import SideBar from './SideBar'
+import ExpenseForm from '../components/ExpenseForm'
+import ExpenseList from '../components/ExpenseList'
+import Statistic from '../components/Statistic'
+import SideBar from '../components/SideBar'
 
 const Expedition = () => {
     const [submit, setSubmit] = useState(false)
