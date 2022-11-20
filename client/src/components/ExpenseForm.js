@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import {Categories} from './assets/functions';
+import moment from 'moment'
 
 const ExpenseForm = props => {
-    let [info, setInfo] = useState({transaction: "", amount: "", date: "", type: ""})
+    let currentDate = moment(new Date()).format("YYYY-MM-DD")
+    let [info, setInfo] = useState({transaction: "", amount: "", date: currentDate, type: ""})
     let [error, setErrors] = useState({})
     
     // Destructuring
@@ -19,8 +21,8 @@ const ExpenseForm = props => {
             .then(response => {
                 console.log(response.data)
                 if (response.data.errors) setErrors(response.data.errors);
-                else setErrors(null);
-                setInfo({transaction: "", amount: "", date: "", type: ""})
+                else setErrors({});
+                setInfo({transaction: "", amount: "", date: currentDate, type: ""})
                 setSubmit(!submit)
             })
             .catch(error => console.log(error))
