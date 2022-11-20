@@ -31,6 +31,13 @@ class ExpeditionController {
             .then(expedition => response.json(expedition))
             .catch(error => response.json(error))
     }
+
+    // Should probably add validation where only the user who has this specific document can delete
+    deleteExpedition = (request, response) => {
+        Expedition.deleteOne({_id: request.params.id})
+            .then(expedition => response.json(expedition))
+            .catch(error => response.json(error))
+    }
 }
 
 module.exports = new ExpeditionController()

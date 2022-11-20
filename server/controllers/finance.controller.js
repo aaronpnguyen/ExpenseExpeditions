@@ -37,12 +37,12 @@ class FinanceController {
         }
     }
 
+    // Should probably add validation where only the user who has this specific document can delete
     deleteFinance = (request, response) => {
         Finance.deleteOne({_id: request.params.id})
             .then(expense => response.json(expense))
             .catch(error => response.json(error))
     }
-
 }
 
 module.exports = new FinanceController();
