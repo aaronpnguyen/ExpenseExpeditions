@@ -21,7 +21,7 @@ const Nav = () => {
                 <div className="rightNav">
                     <div className="login">
                     {
-                        document.cookie?<button onClick={logout}>Sign Out</button>:<button>Sign In</button>
+                        document.cookie?<button onClick={logout}>Sign Out</button>: <button onClick={e => navigate("/sign-in")}>Sign In</button>
                     } 
                     </div>
                 </div>

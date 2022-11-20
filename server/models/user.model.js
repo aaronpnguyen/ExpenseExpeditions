@@ -17,7 +17,8 @@ const UserSchema = new mongoose.Schema({
             // Tests the value from form with this regular expression pattern to validate if the pattern is in an email format
             validator: val => /^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$/.test(val),
                 message: 'Please enter a valid email',
-        }
+        },
+        lowercase: true
     },
     password: {
         type: String,

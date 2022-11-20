@@ -141,10 +141,9 @@ a {
     width: 75%
 }
 
-.inputForm > .validation {
+.validation {
     margin-bottom: 5px;
     margin-left: 2px;
-    left: -160px;
     color: var(--red);
 }
 
