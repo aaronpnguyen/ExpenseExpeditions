@@ -4,4 +4,5 @@ module.exports = app => {
     app.post("/api/finance/new", FinanceController.createFinance)
     app.get("/api/finances/user", FinanceController.getUserFinances)
     app.get("/api/finances/expedition/:expeditionId", FinanceController.getExpeditionFinances)
+    app.delete("/api/finance/delete/:id", FinanceController.deleteFinance)
 }

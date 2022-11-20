@@ -46,6 +46,7 @@ class UserController {
     }
 
     getUser = (request, response) => {
+        if (!request.cookies.usertoken) return response.sendStatus(400)
         const userData = jwt.decode(request.cookies.usertoken, {complete: true})
         User.findOne({_id: userData.payload.id})
             .then(user => {response.json(user)})

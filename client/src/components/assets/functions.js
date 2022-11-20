@@ -24,7 +24,21 @@ export const ChartInfo = obj => {
             width: 300,
             hoverOffset: 10,
             radius: '95%',
-        }]
+        }],
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {position: "bottom"},
+                // title: {
+                //     display: true,
+                //     text: "Tracked Expenses",
+                //     font: {
+                //         weight: "bold",
+                //         size: 24
+                //     }
+                // }
+            }
+        }
     }
     return chartInfo
 };
@@ -45,4 +59,16 @@ export const Sum = response => {
         sum += finance[i].amount;
     }
     return sum.toFixed(2)
+}
+
+export const Unparse = data => {
+    let arr = [], types = Object.keys(data), totals = Object.values(data)
+    for (let i = 0; i < Object.keys(data).length; i++) {
+        let obj = {
+            type: types[i],
+            total: totals[i]
+        }
+        arr.push(obj)
+    }
+    return arr
 }

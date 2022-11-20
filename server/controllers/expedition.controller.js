@@ -22,6 +22,15 @@ class ExpeditionController {
             .then(group => response.json(group))
             .catch(error => response.json(error))
     }
+
+    getOneExpedition = async (request, response) => {
+        if (!request.cookies.usertoken) return response.sendStatus(400)
+        const userData = jwt.decode(request.cookies.usertoken, {complete: true}), userId = userData.payload.id
+        let user = await User.findOne({_id: userId});
+        Expedition.findOne({user: user, _id: request.params.id})
+            .then(expedition => response.json(expedition))
+            .catch(error => response.json(error))
+    }
 }
 
 module.exports = new ExpeditionController()

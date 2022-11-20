@@ -36,6 +36,13 @@ class FinanceController {
             response.json(error)
         }
     }
+
+    deleteFinance = (request, response) => {
+        Finance.deleteOne({_id: request.params.id})
+            .then(expense => response.json(expense))
+            .catch(error => response.json(error))
+    }
+
 }
 
 module.exports = new FinanceController();
