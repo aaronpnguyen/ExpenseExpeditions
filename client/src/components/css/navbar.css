@@ -48,9 +48,14 @@ button {
     font-size: 14px;
     letter-spacing: var(--text-spacing);
     border-radius: 10px;
+    border: 2px solid var(--divider)
 }
 
 button:hover {
     background-color: var(--hover-white);
     cursor: pointer;
+}
+
+.noBorder {
+    border: none
 }
