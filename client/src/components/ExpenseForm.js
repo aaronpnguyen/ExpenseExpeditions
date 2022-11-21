@@ -19,7 +19,6 @@ const ExpenseForm = props => {
         if (props.expeditionId) setInfo(Object.assign(info, {expedition: props.expeditionId}));
         axios.post("http://localhost:8000/api/finance/new", info, {withCredentials: true})
             .then(response => {
-                console.log(response.data)
                 if (response.data.errors) setErrors(response.data.errors);
                 else setErrors({});
                 setInfo({transaction: "", amount: "", date: currentDate, type: ""})

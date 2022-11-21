@@ -2,7 +2,6 @@ let transactionType = [
     "Housing", "Utilities", "Investments", "Groceries", "Gas", "Auto & Transport", "Travel", "Vacation",
     "Cell Phone", "Education", "Pets", "Clothing", "Shopping", "Subscriptions", "Loan Payment", "Social",
     "Dining & Drinks", "Entertainment", "Health & Wellness", "Medical", "Cash & Checks", "Miscellaneous",
-    "Other"
 ]
 transactionType.sort()
 transactionType.unshift("Choose type")
